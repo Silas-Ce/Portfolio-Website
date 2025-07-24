@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silas Silas | Front-End Developer</title>
+  <meta name="description" content="Portfolio of Silas Silas, a front-end developer specializing in modern web and mobile interfaces." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #181818;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+    .navbar {
+      background: #121212;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .navbar-logo a {
+      color: #4da8ff;
+      font-size: 1.7rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-left: 2rem;
+    }
+    .navbar-links a {
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+    .navbar-links a.active,
+    .navbar-links a:hover,
+    .navbar-links a:focus {
+      background: #4da8ff;
+      color: #fff;
+    }
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg,
+    .hero-bg-next {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+    .hero-bg.active {
+      opacity: 1;
+      z-index: 0;
+    }
+    .hero-bg-next {
+      z-index: 1;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 600px;
+      margin: auto;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #b0b8c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="navbar-logo">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-code"></i> Silas Silas
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-user"></i> About</a>
+      <a href="projects.html"><i class="fas fa-briefcase"></i> Projects</a>
+      <a href="services.html"><i class="fas fa-cogs"></i> Services</a>
+      <a href="skills.html"><i class="fas fa-lightbulb"></i> Skills</a>
+      <a href="certificates.html"><i class="fas fa-certificate"></i> Certificates</a>
+      <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm Silas <span aria-label="waving hand" role="img">👋</span></h1>
+      <p>A passionate front-end developer crafting intuitive, modern interfaces</p>
+    </div>
+  </section>
+
+  <!-- Crossfade Background Script -->
+  <script>
+    const images = [
+      'images/Background1.jpg',
+      'images/Background2.jpg',
+      'images/Background3.jpg',
+      'images/Background4.jpg',
+      'images/Background5.jpg',
+      'images/Background6.jpg',
+      'images/Background7.jpg'
+    ];
+
+    const heroSection = document.querySelector('.hero');
+    const bg1 = document.createElement('div');
+    const bg2 = document.createElement('div');
+    bg1.className = 'hero-bg active';
+    bg2.className = 'hero-bg hero-bg-next';
+    heroSection.appendChild(bg1);
+    heroSection.appendChild(bg2);
+
+    let current = 0;
+    let next = 1;
+    bg1.style.backgroundImage = `url(${images[current]})`;
+    bg2.style.backgroundImage = `url(${images[next]})`;
+
+    function crossfade() {
+      bg2.style.backgroundImage = `url(${images[next]})`;
+      bg2.classList.add('active');
+      bg1.classList.remove('active');
+
+      setTimeout(() => {
+        bg1.style.backgroundImage = `url(${images[next]})`;
+        bg1.classList.add('active');
+        bg2.classList.remove('active');
+        current = next;
+        next = (next + 1) % images.length;
+      }, 1000);
+    }
+
+    setInterval(crossfade, 3000);
+  </script>
+  </div>
+
+<footer class="footer">
+  <p>© 2025 Silas Silas |
+    <a href="mailto:ceazersilas@gmail.com"><i class="fas fa-envelope"></i> Email</a> 
+    <a href="https://github.com/Silas-Ce" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+    <a href="https://www.linkedin.com/in/silas-silas-ceaser/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </p>
+</footer>
+</body>
+</html>

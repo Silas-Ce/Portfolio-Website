@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificates | Silas Ceaser</title>
+  <meta name="description" content="Certificates and achievements of Silas Ceaser, front-end developer." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-wrapper">
+  <!-- Navbar (dynamic include) -->
+  <header id="navbar"></header>
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-code"></i> Silas Silas
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-links">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+      <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="skills.html"><i class="fas fa-lightbulb"></i> Skills</a></li>
+      <li><a href="certificates.html"><i class="fas fa-certificate"></i> Certificates</a></li>
+      <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+  // Hamburger menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const links = document.querySelector('.navbar-links');
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('active');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+      toggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Dynamic .active class for current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+  <section class="section">
+    <h2><i class="fas fa-certificate"></i> My Certificates</h2>
+    <p>Here are some of the certifications I’ve earned throughout my journey:</p>
+
+    <div class="certificates-grid">
+      <article class="certificate-card">
+        <h3><i class="fas fa-award"></i> FNB App Academy Certificate</h3>
+        <p>This certificate is awarded upon successful completion of FNB’s App Academy program, which focuses on real-world software development, agile workflows, and mobile banking solutions for African markets.</p>
+        <a href="Silas_FNB-Certificate.pdf" download class="btn"><i class="fas fa-download"></i> Download</a>
+      </article>
+
+      <article class="certificate-card">
+        <h3><i class="fas fa-laptop-code"></i> Responsive Web Design</h3>
+        <p>A certification demonstrating mastery in building responsive, mobile-friendly websites using HTML, CSS, and Flexbox, with accessibility and performance in mind.</p>
+        <a href="certificates/Responsive_Web_Design.pdf" download class="btn"><i class="fas fa-download"></i> Download</a>
+      </article>
+
+      <article class="certificate-card">
+        <h3><i class="fab fa-android"></i> Android Development Basics</h3>
+        <p>This certificate covers the foundations of Android app development including UI creation, activity lifecycle, and Kotlin-based programming.</p>
+        <a href="certificates/Android_Basics_Certificate.pdf" download class="btn"><i class="fas fa-download"></i> Download</a>
+      </article>
+    </div>
+  </section>
+  </div>
+
+
+  <footer class="footer">
+    <p>© 2025 Silas Silas | 
+      <a href="mailto:ceazersilas@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://github.com/Silas-Ce" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+      <a href="https://www.linkedin.com/in/silas-silas-ceaser/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </p>
+  </footer>
+</body>
+</html>

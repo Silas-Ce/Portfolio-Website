@@ -1,0 +1,42 @@
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-code"></i> Silas Silas
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-links">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+      <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="skills.html"><i class="fas fa-lightbulb"></i> Skills</a></li>
+      <li><a href="certificates.html"><i class="fas fa-certificate"></i> Certificates</a></li>
+      <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+  // Hamburger menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const links = document.querySelector('.navbar-links');
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('active');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+      toggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Dynamic .active class for current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
