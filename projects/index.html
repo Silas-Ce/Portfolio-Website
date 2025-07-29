@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Silas Ceaser</title>
+  <meta name="description" content="Explore projects by Silas Ceaser, a front-end developer specializing in modern web and mobile interfaces." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page-wrapper">
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-code"></i> Silas Silas
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-links">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navbar-links" id="navbar-links">
+     <li><a href="/Portfolio-Website/home/""><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/Portfolio-Website/about/""><i class="fas fa-user"></i> About</a></li>
+      <li><a href="/Portfolio-Website/project/""><i class="fas fa-briefcase"></i> Projects</a></li>
+      <li><a href="/Portfolio-Website/services/""><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="/Portfolio-Website/skills/""><i class="fas fa-lightbulb"></i> Skills</a></li>
+      <li><a href="/Portfolio-Website/certificates/""><i class="fas fa-certificate"></i> Certificates</a></li>
+      <li><a href="/Portfolio-Website/resume/""><i class="fas fa-file-alt"></i> Resume</a></li>
+      <li><a href="/Portfolio-Website/contact/""><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+  // Hamburger menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const links = document.querySelector('.navbar-links');
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('active');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+      toggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Dynamic .active class for current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+  <section class="section">
+    <h2>My Projects</h2>
+    <p>Here are some of the projects I've worked on — ranging from UI prototypes to live web apps.</p>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <img src="images/project1.webp" alt="Screenshot of GoDrop Logistics interface" loading="lazy" />
+        <h3>GoDrop Logistics</h3>
+        <p>Worked on customer communication interface and delivery tracking front-end components.</p>
+        <a href="#" class="btn"><i class="fab fa-github"></i> View on GitHub</a>
+      </article>
+
+      <article class="project-card">
+        <img src="images/project2.webp" alt="Screenshot of Portfolio Website" loading="lazy" />
+        <h3>Portfolio Website</h3>
+        <p>This personal website you're browsing. Built with HTML, CSS, and a touch of JavaScript.</p>
+        <a href="#" class="btn"><i class="fas fa-globe"></i> Live Site</a>
+      </article>
+
+      <article class="project-card">
+        <img src="images/project3.webp" alt="Screenshot of NUST Student Portal UI" loading="lazy" />
+        <h3>NUST Student Portal UI</h3>
+        <p>Redesigned a modern and mobile-friendly version of the student portal interface.</p>
+        <a href="#" class="btn"><i class="fas fa-eye"></i> Preview</a>
+      </article>
+      <!-- Add more projects as needed -->
+    </div>
+  </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Silas Silas |
+      <a href="mailto:ceazersilas@gmail.com"><i class="fas fa-envelope"></i> Email</a> 
+      <a href="https://github.com/Silas-Ce" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+      <a href="https://www.linkedin.com/in/silas-silas-ceaser/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </p>
+  </footer>
+</body>
+</html>
