@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | Silas Ceaser</title>
+  <meta name="description" content="Learn more about Silas Ceaser, a front-end developer with a passion for modern web and mobile interfaces." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-wrapper">
+  <!-- Navbar (dynamic include) -->
+  <header id="navbar"></header>
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-code"></i> Silas Silas
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-links">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="/Portfolio-Website/home/""><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/Portfolio-Website/about/""><i class="fas fa-user"></i> About</a></li>
+      <li><a href="/Portfolio-Website/project/""><i class="fas fa-briefcase"></i> Projects</a></li>
+      <li><a href="/Portfolio-Website/services/""><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="/Portfolio-Website/skills/""><i class="fas fa-lightbulb"></i> Skills</a></li>
+      <li><a href="/Portfolio-Website/certificates/""><i class="fas fa-certificate"></i> Certificates</a></li>
+      <li><a href="/Portfolio-Website/resume/""><i class="fas fa-file-alt"></i> Resume</a></li>
+      <li><a href="/Portfolio-Website/contact/""><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+  // Hamburger menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const links = document.querySelector('.navbar-links');
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('active');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+      toggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Dynamic .active class for current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+  <!-- About Content -->
+  <section class="section">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm Silas Silas, a creative and dedicated third-year Software Engineering student at NUST. My passion lies in front-end development, where I enjoy bringing user interfaces to life with clean code and thoughtful design.
+    </p>
+    <p>
+      I believe good design is invisible, and great code should be maintainable and meaningful. I love collaborating with teams, solving problems with empathy, and learning new technologies that push me out of my comfort zone.
+    </p>
+
+    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+    <ul>
+      <li><strong>NUST University</strong> — Bachelor of Software Engineering (2022–2025)</li>
+    </ul>
+
+    <h3 style="margin-top:2.5rem;"><i class="fas fa-laptop-code"></i> Skills</h3>
+<div class="tech-stack" style="margin-bottom:2rem;">
+  <span><i class="fab fa-html5"></i> HTML5</span>
+  <span><i class="fab fa-css3-alt"></i> CSS3</span>
+  <span><i class="fab fa-js"></i> JavaScript</span>
+  <span><i class="fab fa-react"></i> React</span>
+  <span><i class="fab fa-figma"></i> Figma</span>
+  <span><i class="fab fa-git-alt"></i> Git & GitHub</span>
+  <span><i class="fab fa-java"></i> Java</span>
+  <span><i class="fas fa-code"></i> Kotlin</span>
+  <span><i class="fas fa-database"></i> SQL</span>
+  <span><i class="fab fa-css3-alt"></i> TailwindCSS</span>
+  <span><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+</div>
+
+    <h3><i class="fas fa-star"></i> Soft Skills</h3>
+    <ul>
+      <li><i class="fas fa-users"></i> Team Collaboration</li>
+      <li><i class="fas fa-lightbulb"></i> Creativity & Innovation</li>
+      <li><i class="fas fa-comments"></i> Strong Communication</li>
+      <li><i class="fas fa-sync"></i> Adaptability & Quick Learning</li>
+    </ul>
+  </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Silas Silas | 
+      <a href="mailto:ceazersilas@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://github.com/Silas-Ce" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+      <a href="https://www.linkedin.com/in/silas-silas-ceaser/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </p>
+  </footer>
+</body>
+</html>
